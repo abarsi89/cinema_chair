@@ -7,6 +7,39 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Moziszék foglaló
+
+A projekt beüzemeléséhez az alábbi lépéseket kell megtenni:
+
+- A projekt leklónozása után létre kell hozni egy adatbázist egy tetszőleges néven (pl.: cinema_chair)
+- Az .env file-ban ezt a nevet be kell állítanunk a DB_DATABASE-nek, illetve alatta (DB_USERNAME, DB_PASSWORD) meg kell adnunk az adatbázis hozzáférésünket
+- Ugyanebben a file-ban kell megtennünk a fostafiók beállításokat is, hogy a fizettetés részeként email-t is tudjunk küldeni, de ez később is ráér
+
+  Ha például Gmail fostafiókot használunk, akkor a javasolt beállítások a következők:
+  
+  MAIL_DRIVER=smtp
+  
+  MAIL_HOST=smtp.gmail.com
+  
+  MAIL_PORT=587
+  
+  MAIL_USERNAME=email_cimed@gmail.com
+  
+  MAIL_PASSWORD=jelszavad_a_postafiokhoz
+  
+  MAIL_ENCRYPTION=tls
+  
+  MAIL_FROM_ADDRESS=email_cimed@gmail.com
+  
+  MAIL_FROM_NAME="${APP_NAME}"
+  
+  Config módosítások után minden minden alkalommal futtatnunk kell ezt a parancsot: php artisan config:cache
+  
+- Console-ban futtatnunk kell az alábbi parancsot: "php artisan migrate", ezzel létrehozzunk az adatbázis megfelelő szerkezetét
+- Az alkalmazást fel kell töltenünk teszt adatokkal, amihez elég futtatnunk a következő parancsot: "php artisan migrate:refresh --seed"
+- Szükséges lehet még futtatni a megfelelő adatbázisszerkezethez és adatokhoz: "composer dumpautoload" és ezután ismét "php artisan migrate" és "php artisan migrate:refresh --seed"
+- Ezek után elindítjuk a szervert: "php artisan serve" és a http://127.0.0.1:8000 címen elérhetővé válik az alkalmazás
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
