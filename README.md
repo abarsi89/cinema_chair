@@ -13,9 +13,9 @@ A projekt beüzemeléséhez az alábbi lépéseket kell megtenni:
 
 - A projekt leklónozása után létre kell hozni egy adatbázist egy tetszőleges néven (pl.: cinema_chair)
 - Az .env file-ban ezt a nevet be kell állítanunk a DB_DATABASE-nek, illetve alatta (DB_USERNAME, DB_PASSWORD) meg kell adnunk az adatbázis hozzáférésünket
-- Ugyanebben a file-ban kell megtennünk a fostafiók beállításokat is, hogy a fizettetés részeként email-t is tudjunk küldeni, de ez később is ráér
+- Ugyanebben a file-ban kell megtennünk a ostafiók beállításokat is, hogy a fizettetés részeként email-t is tudjunk küldeni, de ez később is ráér
 
-  Ha például Gmail fostafiókot használunk, akkor a javasolt beállítások a következők:
+  Ha például Gmail postafiókot használunk, akkor a javasolt beállítások a következők:
   
   MAIL_DRIVER=smtp
   
@@ -33,7 +33,7 @@ A projekt beüzemeléséhez az alábbi lépéseket kell megtenni:
   
   MAIL_FROM_NAME="${APP_NAME}"
   
-  Config módosítások után minden minden alkalommal futtatnunk kell ezt a parancsot: php artisan config:cache
+  Config módosítások után minden alkalommal futtatnunk kell ezt a parancsot: "php artisan config:cache"
   
 - Console-ban futtatnunk kell az alábbi parancsot: "php artisan migrate", ezzel létrehozzunk az adatbázis megfelelő szerkezetét
 - Az alkalmazást fel kell töltenünk teszt adatokkal, amihez elég futtatnunk a következő parancsot: "php artisan migrate:refresh --seed"
