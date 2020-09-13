@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::resource('/', 'ChairController');
+
+Route::get('/reserve/{id}', 'ChairController@reserve')->name('reserve');
+Route::post('/pay', 'ChairController@pay')->name('payment');
+
